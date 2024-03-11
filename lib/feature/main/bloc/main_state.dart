@@ -6,5 +6,6 @@ class MainState with _$MainState {
     @Default(0) int index,
     @Default(true) bool fullDashboard,
     @Default(true) bool defaultVersion,
+    @Default(false) bool showOnboarding,
   }) = _MainState;
 }

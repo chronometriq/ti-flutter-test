@@ -15,6 +15,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         defaultVersion: event.defaultVersion,
       ));
     });
+    on<_MainEventChangeOnboarding>((event, emit) {
+      emit(state.copyWith(showOnboarding: !state.showOnboarding));
+    });
     on<_MainEventChangePage>((event, emit) {
       emit(state.copyWith(index: event.index));
     });

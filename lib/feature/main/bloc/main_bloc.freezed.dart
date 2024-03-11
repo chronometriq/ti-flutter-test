@@ -12,7 +12,7 @@ part of 'main_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MainEvent {
@@ -21,18 +21,21 @@ mixin _$MainEvent {
     required TResult Function(bool fullDashboard, bool defaultVersion)
         changeDashboard,
     required TResult Function(int index) changePage,
+    required TResult Function() changeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult? Function(int index)? changePage,
+    TResult? Function()? changeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult Function(int index)? changePage,
+    TResult Function()? changeOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,22 @@ mixin _$MainEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_MainEventChangeDashboard value) changeDashboard,
     required TResult Function(_MainEventChangePage value) changePage,
+    required TResult Function(_MainEventChangeOnboarding value)
+        changeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult? Function(_MainEventChangePage value)? changePage,
+    TResult? Function(_MainEventChangeOnboarding value)? changeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult Function(_MainEventChangePage value)? changePage,
+    TResult Function(_MainEventChangeOnboarding value)? changeOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,21 +82,22 @@ class _$MainEventCopyWithImpl<$Res, $Val extends MainEvent>
 }
 
 /// @nodoc
-abstract class _$$_MainEventChangeDashboardCopyWith<$Res> {
-  factory _$$_MainEventChangeDashboardCopyWith(
-          _$_MainEventChangeDashboard value,
-          $Res Function(_$_MainEventChangeDashboard) then) =
-      __$$_MainEventChangeDashboardCopyWithImpl<$Res>;
+abstract class _$$MainEventChangeDashboardImplCopyWith<$Res> {
+  factory _$$MainEventChangeDashboardImplCopyWith(
+          _$MainEventChangeDashboardImpl value,
+          $Res Function(_$MainEventChangeDashboardImpl) then) =
+      __$$MainEventChangeDashboardImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool fullDashboard, bool defaultVersion});
 }
 
 /// @nodoc
-class __$$_MainEventChangeDashboardCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$_MainEventChangeDashboard>
-    implements _$$_MainEventChangeDashboardCopyWith<$Res> {
-  __$$_MainEventChangeDashboardCopyWithImpl(_$_MainEventChangeDashboard _value,
-      $Res Function(_$_MainEventChangeDashboard) _then)
+class __$$MainEventChangeDashboardImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$MainEventChangeDashboardImpl>
+    implements _$$MainEventChangeDashboardImplCopyWith<$Res> {
+  __$$MainEventChangeDashboardImplCopyWithImpl(
+      _$MainEventChangeDashboardImpl _value,
+      $Res Function(_$MainEventChangeDashboardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +106,7 @@ class __$$_MainEventChangeDashboardCopyWithImpl<$Res>
     Object? fullDashboard = null,
     Object? defaultVersion = null,
   }) {
-    return _then(_$_MainEventChangeDashboard(
+    return _then(_$MainEventChangeDashboardImpl(
       fullDashboard: null == fullDashboard
           ? _value.fullDashboard
           : fullDashboard // ignore: cast_nullable_to_non_nullable
@@ -113,8 +121,8 @@ class __$$_MainEventChangeDashboardCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
-  const _$_MainEventChangeDashboard(
+class _$MainEventChangeDashboardImpl implements _MainEventChangeDashboard {
+  const _$MainEventChangeDashboardImpl(
       {this.fullDashboard = true, this.defaultVersion = true});
 
   @override
@@ -130,10 +138,10 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MainEventChangeDashboard &&
+            other is _$MainEventChangeDashboardImpl &&
             (identical(other.fullDashboard, fullDashboard) ||
                 other.fullDashboard == fullDashboard) &&
             (identical(other.defaultVersion, defaultVersion) ||
@@ -146,9 +154,9 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MainEventChangeDashboardCopyWith<_$_MainEventChangeDashboard>
-      get copyWith => __$$_MainEventChangeDashboardCopyWithImpl<
-          _$_MainEventChangeDashboard>(this, _$identity);
+  _$$MainEventChangeDashboardImplCopyWith<_$MainEventChangeDashboardImpl>
+      get copyWith => __$$MainEventChangeDashboardImplCopyWithImpl<
+          _$MainEventChangeDashboardImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -156,6 +164,7 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
     required TResult Function(bool fullDashboard, bool defaultVersion)
         changeDashboard,
     required TResult Function(int index) changePage,
+    required TResult Function() changeOnboarding,
   }) {
     return changeDashboard(fullDashboard, defaultVersion);
   }
@@ -165,6 +174,7 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult? Function(int index)? changePage,
+    TResult? Function()? changeOnboarding,
   }) {
     return changeDashboard?.call(fullDashboard, defaultVersion);
   }
@@ -174,6 +184,7 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult Function(int index)? changePage,
+    TResult Function()? changeOnboarding,
     required TResult orElse(),
   }) {
     if (changeDashboard != null) {
@@ -187,6 +198,8 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   TResult map<TResult extends Object?>({
     required TResult Function(_MainEventChangeDashboard value) changeDashboard,
     required TResult Function(_MainEventChangePage value) changePage,
+    required TResult Function(_MainEventChangeOnboarding value)
+        changeOnboarding,
   }) {
     return changeDashboard(this);
   }
@@ -196,6 +209,7 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult? Function(_MainEventChangePage value)? changePage,
+    TResult? Function(_MainEventChangeOnboarding value)? changeOnboarding,
   }) {
     return changeDashboard?.call(this);
   }
@@ -205,6 +219,7 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult Function(_MainEventChangePage value)? changePage,
+    TResult Function(_MainEventChangeOnboarding value)? changeOnboarding,
     required TResult orElse(),
   }) {
     if (changeDashboard != null) {
@@ -217,30 +232,30 @@ class _$_MainEventChangeDashboard implements _MainEventChangeDashboard {
 abstract class _MainEventChangeDashboard implements MainEvent {
   const factory _MainEventChangeDashboard(
       {final bool fullDashboard,
-      final bool defaultVersion}) = _$_MainEventChangeDashboard;
+      final bool defaultVersion}) = _$MainEventChangeDashboardImpl;
 
   bool get fullDashboard;
   bool get defaultVersion;
   @JsonKey(ignore: true)
-  _$$_MainEventChangeDashboardCopyWith<_$_MainEventChangeDashboard>
+  _$$MainEventChangeDashboardImplCopyWith<_$MainEventChangeDashboardImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MainEventChangePageCopyWith<$Res> {
-  factory _$$_MainEventChangePageCopyWith(_$_MainEventChangePage value,
-          $Res Function(_$_MainEventChangePage) then) =
-      __$$_MainEventChangePageCopyWithImpl<$Res>;
+abstract class _$$MainEventChangePageImplCopyWith<$Res> {
+  factory _$$MainEventChangePageImplCopyWith(_$MainEventChangePageImpl value,
+          $Res Function(_$MainEventChangePageImpl) then) =
+      __$$MainEventChangePageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_MainEventChangePageCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$_MainEventChangePage>
-    implements _$$_MainEventChangePageCopyWith<$Res> {
-  __$$_MainEventChangePageCopyWithImpl(_$_MainEventChangePage _value,
-      $Res Function(_$_MainEventChangePage) _then)
+class __$$MainEventChangePageImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$MainEventChangePageImpl>
+    implements _$$MainEventChangePageImplCopyWith<$Res> {
+  __$$MainEventChangePageImplCopyWithImpl(_$MainEventChangePageImpl _value,
+      $Res Function(_$MainEventChangePageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -248,7 +263,7 @@ class __$$_MainEventChangePageCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_MainEventChangePage(
+    return _then(_$MainEventChangePageImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -259,8 +274,8 @@ class __$$_MainEventChangePageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MainEventChangePage implements _MainEventChangePage {
-  const _$_MainEventChangePage({required this.index});
+class _$MainEventChangePageImpl implements _MainEventChangePage {
+  const _$MainEventChangePageImpl({required this.index});
 
   @override
   final int index;
@@ -271,10 +286,10 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MainEventChangePage &&
+            other is _$MainEventChangePageImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -284,8 +299,8 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MainEventChangePageCopyWith<_$_MainEventChangePage> get copyWith =>
-      __$$_MainEventChangePageCopyWithImpl<_$_MainEventChangePage>(
+  _$$MainEventChangePageImplCopyWith<_$MainEventChangePageImpl> get copyWith =>
+      __$$MainEventChangePageImplCopyWithImpl<_$MainEventChangePageImpl>(
           this, _$identity);
 
   @override
@@ -294,6 +309,7 @@ class _$_MainEventChangePage implements _MainEventChangePage {
     required TResult Function(bool fullDashboard, bool defaultVersion)
         changeDashboard,
     required TResult Function(int index) changePage,
+    required TResult Function() changeOnboarding,
   }) {
     return changePage(index);
   }
@@ -303,6 +319,7 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult? Function(int index)? changePage,
+    TResult? Function()? changeOnboarding,
   }) {
     return changePage?.call(index);
   }
@@ -312,6 +329,7 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
     TResult Function(int index)? changePage,
+    TResult Function()? changeOnboarding,
     required TResult orElse(),
   }) {
     if (changePage != null) {
@@ -325,6 +343,8 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   TResult map<TResult extends Object?>({
     required TResult Function(_MainEventChangeDashboard value) changeDashboard,
     required TResult Function(_MainEventChangePage value) changePage,
+    required TResult Function(_MainEventChangeOnboarding value)
+        changeOnboarding,
   }) {
     return changePage(this);
   }
@@ -334,6 +354,7 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult? Function(_MainEventChangePage value)? changePage,
+    TResult? Function(_MainEventChangeOnboarding value)? changeOnboarding,
   }) {
     return changePage?.call(this);
   }
@@ -343,6 +364,7 @@ class _$_MainEventChangePage implements _MainEventChangePage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainEventChangeDashboard value)? changeDashboard,
     TResult Function(_MainEventChangePage value)? changePage,
+    TResult Function(_MainEventChangeOnboarding value)? changeOnboarding,
     required TResult orElse(),
   }) {
     if (changePage != null) {
@@ -354,12 +376,125 @@ class _$_MainEventChangePage implements _MainEventChangePage {
 
 abstract class _MainEventChangePage implements MainEvent {
   const factory _MainEventChangePage({required final int index}) =
-      _$_MainEventChangePage;
+      _$MainEventChangePageImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_MainEventChangePageCopyWith<_$_MainEventChangePage> get copyWith =>
+  _$$MainEventChangePageImplCopyWith<_$MainEventChangePageImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MainEventChangeOnboardingImplCopyWith<$Res> {
+  factory _$$MainEventChangeOnboardingImplCopyWith(
+          _$MainEventChangeOnboardingImpl value,
+          $Res Function(_$MainEventChangeOnboardingImpl) then) =
+      __$$MainEventChangeOnboardingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MainEventChangeOnboardingImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$MainEventChangeOnboardingImpl>
+    implements _$$MainEventChangeOnboardingImplCopyWith<$Res> {
+  __$$MainEventChangeOnboardingImplCopyWithImpl(
+      _$MainEventChangeOnboardingImpl _value,
+      $Res Function(_$MainEventChangeOnboardingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MainEventChangeOnboardingImpl implements _MainEventChangeOnboarding {
+  const _$MainEventChangeOnboardingImpl();
+
+  @override
+  String toString() {
+    return 'MainEvent.changeOnboarding()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MainEventChangeOnboardingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool fullDashboard, bool defaultVersion)
+        changeDashboard,
+    required TResult Function(int index) changePage,
+    required TResult Function() changeOnboarding,
+  }) {
+    return changeOnboarding();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
+    TResult? Function(int index)? changePage,
+    TResult? Function()? changeOnboarding,
+  }) {
+    return changeOnboarding?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool fullDashboard, bool defaultVersion)? changeDashboard,
+    TResult Function(int index)? changePage,
+    TResult Function()? changeOnboarding,
+    required TResult orElse(),
+  }) {
+    if (changeOnboarding != null) {
+      return changeOnboarding();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MainEventChangeDashboard value) changeDashboard,
+    required TResult Function(_MainEventChangePage value) changePage,
+    required TResult Function(_MainEventChangeOnboarding value)
+        changeOnboarding,
+  }) {
+    return changeOnboarding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MainEventChangeDashboard value)? changeDashboard,
+    TResult? Function(_MainEventChangePage value)? changePage,
+    TResult? Function(_MainEventChangeOnboarding value)? changeOnboarding,
+  }) {
+    return changeOnboarding?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MainEventChangeDashboard value)? changeDashboard,
+    TResult Function(_MainEventChangePage value)? changePage,
+    TResult Function(_MainEventChangeOnboarding value)? changeOnboarding,
+    required TResult orElse(),
+  }) {
+    if (changeOnboarding != null) {
+      return changeOnboarding(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MainEventChangeOnboarding implements MainEvent {
+  const factory _MainEventChangeOnboarding() = _$MainEventChangeOnboardingImpl;
 }
 
 /// @nodoc
@@ -367,6 +502,7 @@ mixin _$MainState {
   int get index => throw _privateConstructorUsedError;
   bool get fullDashboard => throw _privateConstructorUsedError;
   bool get defaultVersion => throw _privateConstructorUsedError;
+  bool get showOnboarding => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainStateCopyWith<MainState> get copyWith =>
@@ -378,7 +514,11 @@ abstract class $MainStateCopyWith<$Res> {
   factory $MainStateCopyWith(MainState value, $Res Function(MainState) then) =
       _$MainStateCopyWithImpl<$Res, MainState>;
   @useResult
-  $Res call({int index, bool fullDashboard, bool defaultVersion});
+  $Res call(
+      {int index,
+      bool fullDashboard,
+      bool defaultVersion,
+      bool showOnboarding});
 }
 
 /// @nodoc
@@ -397,6 +537,7 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
     Object? index = null,
     Object? fullDashboard = null,
     Object? defaultVersion = null,
+    Object? showOnboarding = null,
   }) {
     return _then(_value.copyWith(
       index: null == index
@@ -411,26 +552,35 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
           ? _value.defaultVersion
           : defaultVersion // ignore: cast_nullable_to_non_nullable
               as bool,
+      showOnboarding: null == showOnboarding
+          ? _value.showOnboarding
+          : showOnboarding // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_MainStateCopyWith<$Res> implements $MainStateCopyWith<$Res> {
-  factory _$$_MainStateCopyWith(
-          _$_MainState value, $Res Function(_$_MainState) then) =
-      __$$_MainStateCopyWithImpl<$Res>;
+abstract class _$$MainStateImplCopyWith<$Res>
+    implements $MainStateCopyWith<$Res> {
+  factory _$$MainStateImplCopyWith(
+          _$MainStateImpl value, $Res Function(_$MainStateImpl) then) =
+      __$$MainStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int index, bool fullDashboard, bool defaultVersion});
+  $Res call(
+      {int index,
+      bool fullDashboard,
+      bool defaultVersion,
+      bool showOnboarding});
 }
 
 /// @nodoc
-class __$$_MainStateCopyWithImpl<$Res>
-    extends _$MainStateCopyWithImpl<$Res, _$_MainState>
-    implements _$$_MainStateCopyWith<$Res> {
-  __$$_MainStateCopyWithImpl(
-      _$_MainState _value, $Res Function(_$_MainState) _then)
+class __$$MainStateImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$MainStateImpl>
+    implements _$$MainStateImplCopyWith<$Res> {
+  __$$MainStateImplCopyWithImpl(
+      _$MainStateImpl _value, $Res Function(_$MainStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -439,8 +589,9 @@ class __$$_MainStateCopyWithImpl<$Res>
     Object? index = null,
     Object? fullDashboard = null,
     Object? defaultVersion = null,
+    Object? showOnboarding = null,
   }) {
-    return _then(_$_MainState(
+    return _then(_$MainStateImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -453,15 +604,22 @@ class __$$_MainStateCopyWithImpl<$Res>
           ? _value.defaultVersion
           : defaultVersion // ignore: cast_nullable_to_non_nullable
               as bool,
+      showOnboarding: null == showOnboarding
+          ? _value.showOnboarding
+          : showOnboarding // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_MainState implements _MainState {
-  const _$_MainState(
-      {this.index = 0, this.fullDashboard = true, this.defaultVersion = true});
+class _$MainStateImpl implements _MainState {
+  const _$MainStateImpl(
+      {this.index = 0,
+      this.fullDashboard = true,
+      this.defaultVersion = true,
+      this.showOnboarding = false});
 
   @override
   @JsonKey()
@@ -472,40 +630,46 @@ class _$_MainState implements _MainState {
   @override
   @JsonKey()
   final bool defaultVersion;
+  @override
+  @JsonKey()
+  final bool showOnboarding;
 
   @override
   String toString() {
-    return 'MainState(index: $index, fullDashboard: $fullDashboard, defaultVersion: $defaultVersion)';
+    return 'MainState(index: $index, fullDashboard: $fullDashboard, defaultVersion: $defaultVersion, showOnboarding: $showOnboarding)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MainState &&
+            other is _$MainStateImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.fullDashboard, fullDashboard) ||
                 other.fullDashboard == fullDashboard) &&
             (identical(other.defaultVersion, defaultVersion) ||
-                other.defaultVersion == defaultVersion));
+                other.defaultVersion == defaultVersion) &&
+            (identical(other.showOnboarding, showOnboarding) ||
+                other.showOnboarding == showOnboarding));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, index, fullDashboard, defaultVersion);
+  int get hashCode => Object.hash(
+      runtimeType, index, fullDashboard, defaultVersion, showOnboarding);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MainStateCopyWith<_$_MainState> get copyWith =>
-      __$$_MainStateCopyWithImpl<_$_MainState>(this, _$identity);
+  _$$MainStateImplCopyWith<_$MainStateImpl> get copyWith =>
+      __$$MainStateImplCopyWithImpl<_$MainStateImpl>(this, _$identity);
 }
 
 abstract class _MainState implements MainState {
   const factory _MainState(
       {final int index,
       final bool fullDashboard,
-      final bool defaultVersion}) = _$_MainState;
+      final bool defaultVersion,
+      final bool showOnboarding}) = _$MainStateImpl;
 
   @override
   int get index;
@@ -514,7 +678,9 @@ abstract class _MainState implements MainState {
   @override
   bool get defaultVersion;
   @override
+  bool get showOnboarding;
+  @override
   @JsonKey(ignore: true)
-  _$$_MainStateCopyWith<_$_MainState> get copyWith =>
+  _$$MainStateImplCopyWith<_$MainStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
