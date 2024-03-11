@@ -82,3 +82,4 @@ class Appointments extends StatelessWidget {
         : SectionRow(children: children);
   }
 }
+

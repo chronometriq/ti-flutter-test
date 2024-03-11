@@ -1,6 +1,7 @@
 import 'package:chrconnecthpdraft/feature/app/extension/context.dart';
 import 'package:chrconnecthpdraft/feature/appointment/appointment_screen.dart';
 import 'package:chrconnecthpdraft/feature/billing/billing_screen.dart';
+import 'package:chrconnecthpdraft/feature/home/components/onboarding/home_onboarding.dart';
 import 'package:chrconnecthpdraft/feature/home/home_screen.dart';
 import 'package:chrconnecthpdraft/feature/inbox/inbox_screen.dart';
 import 'package:chrconnecthpdraft/feature/main/bloc/main_bloc.dart';
@@ -77,6 +78,33 @@ class _MainScreenState extends State<MainScreen> {
                     fullDashboard: !_mainBloc.state.defaultVersion),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: ElevatedButton(
+                onPressed: () {
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.blue, backgroundColor: Colors.white, padding: const EdgeInsets.all(16.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    side: const BorderSide(color: Colors.deepPurple),
+                  ), // Change to desired text color
+                ),
+                child:  Text(
+                  'Show Onboarding',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(fontWeight: FontWeight.w400,color: Colors.deepPurple),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
@@ -142,6 +170,7 @@ class _MainScreenState extends State<MainScreen> {
         child: const Icon(Icons.add_rounded),
         children: [
           FloatingActionButton.extended(
+            heroTag: null,
             icon: Image.asset(
               'images/hospital.png',
               color: context.colorScheme.onPrimary,
@@ -155,6 +184,7 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: () {},
           ),
           FloatingActionButton.extended(
+            heroTag: null,
             icon: Image.asset(
               'images/edit-20.png',
               color: context.colorScheme.onPrimary,
@@ -168,6 +198,7 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: () {},
           ),
           FloatingActionButton.extended(
+            heroTag: null,
             icon: const Icon(Icons.add_rounded),
             label: Text(
               context.localizations.book_appointment,
