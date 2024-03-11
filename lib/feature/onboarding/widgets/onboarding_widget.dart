@@ -24,7 +24,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     'Simplified Billing': 'View, manage, and pay your bills effortlessly from anywhere.', // For Billing
     'Set and Manage Reminders': 'Never miss an important task or appointment with personalized reminders.' // Added for Reminders
   };
-
+int get titleLength => onboardingTitles.length;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   currentIndex = index;
                 });
               },
-              itemCount: onboardingTitles.length,
+              itemCount: titleLength,
               itemBuilder: (context, index) {
                 return OnboardingPageWidget(
                   index: index,
@@ -52,7 +52,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               },
             ),
           ),
-          SmoothPageIndicator(controller: controller, count: onboardingTitles.length, ),
+          SmoothPageIndicator(controller: controller, count: titleLength, ),
         const
           SizedBox(height: 10),
           Row(
@@ -80,11 +80,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   style: Theme.of(context).textButtonTheme.style?.copyWith(
                       padding: MaterialStateProperty.all(
                           const EdgeInsets.symmetric(horizontal: 20, vertical: 0)))),
-              if (currentIndex < onboardingTitles.length - 1)
+              if (currentIndex < titleLength -1)
                 ElevatedButton(
                     onPressed: () {
-                      if (currentIndex < onboardingTitles.length - 1) {
-                        controller.jumpToPage(3);
+                      if (currentIndex < titleLength-1) {
+                        controller.jumpToPage(titleLength -1);
                       } else {
                         Navigator.of(context).pop();
                       }
