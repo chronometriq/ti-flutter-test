@@ -4,6 +4,8 @@ import 'package:chrconnecthpdraft/feature/billing/billing_screen.dart';
 import 'package:chrconnecthpdraft/feature/home/home_screen.dart';
 import 'package:chrconnecthpdraft/feature/inbox/inbox_screen.dart';
 import 'package:chrconnecthpdraft/feature/main/bloc/main_bloc.dart';
+import 'package:chrconnecthpdraft/feature/onboarding/widgets/alert_dialog.dart';
+import 'package:chrconnecthpdraft/feature/onboarding/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
@@ -21,6 +23,9 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late MainBloc _mainBloc;
+  void changeOnboarding() {
+    _mainBloc.add(const MainEvent.changeOnboarding());
+  }
 
   @override
   void initState() {
@@ -75,6 +80,26 @@ class _MainScreenState extends State<MainScreen> {
               onTap: () => _mainBloc.add(
                 MainEvent.changeDashboard(
                     fullDashboard: !_mainBloc.state.defaultVersion),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                'Onboarding',
+                style: Theme.of(context)
+                    .textTheme
+                    .displaySmall
+                    ?.copyWith(fontWeight: FontWeight.w400),
+              ),
+              trailing: BlocBuilder<MainBloc, MainState>(
+                bloc: _mainBloc,
+                builder: (context, state) {
+                  return Switch(
+                    value: state.showOnboarding == true,
+                    onChanged: (bool value) {
+                      changeOnboarding();
+                    },
+                  );
+                },
               ),
             ),
           ],
@@ -180,8 +205,26 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: SafeArea(
-        child: BlocBuilder<MainBloc, MainState>(
+        child: BlocConsumer<MainBloc, MainState>(
           bloc: _mainBloc,
+          listenWhen: (previous, current) =>
+          previous.showOnboarding != current.showOnboarding,
+          listener: (context, state) {
+            if (state.showOnboarding == true) {
+              globalAlertDialog(
+                context: context,
+                dismissible: false,
+                onBackButtonDismiss: () {
+                  changeOnboarding();
+                },
+                inputWidget: OnboardingWidget(
+                  onChangeOnboarding: () {
+                    changeOnboarding();
+                  },
+                ),
+              );
+            }
+          },
           builder: (context, state) {
             return _showPage();
           },

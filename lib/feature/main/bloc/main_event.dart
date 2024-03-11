@@ -9,4 +9,6 @@ class MainEvent with _$MainEvent {
 
   const factory MainEvent.changePage({required int index}) =
       _MainEventChangePage;
+
+  const factory MainEvent.changeOnboarding() = _MainEventChangeOnboarding;
 }
