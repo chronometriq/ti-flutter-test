@@ -6,6 +6,10 @@ class AppointmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text(context.localizations.appointments, style: Theme.of(context).textTheme.labelLarge,));
+    return Center(
+        child: Text(
+      context.localizations.appointments,
+      style: Theme.of(context).textTheme.labelLarge,
+    ));
   }
 }
