@@ -18,15 +18,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   int currentIndex = 0;
   PageController controller = PageController();
   Map<String, String> onboardingTitles = {
-    'Welcome to Your Dashboard':
-        'Navigate through your daily tasks with ease and efficiency right from the home screen.',
-    'Manage Your Appointments':
-        'Easily book, reschedule, or cancel appointments with just a few taps.',
-    'Your Inbox, Organized':
-        'Stay on top of your messages and notifications without missing a beat.',
-    'Simplified Billing':
-        'View, manage, and pay your bills effortlessly from anywhere.'
+    'Welcome to Your Dashboard': 'Navigate through your daily tasks with ease and efficiency right from the home screen.', // For the Home Page
+    'Manage Your Appointments': 'Easily book, reschedule, or cancel appointments with just a few taps.', // For Appointments
+    'Your Inbox, Organized': 'Stay on top of your messages and notifications without missing a beat.', // For Inbox
+    'Simplified Billing': 'View, manage, and pay your bills effortlessly from anywhere.', // For Billing
+    'Set and Manage Reminders': 'Never miss an important task or appointment with personalized reminders.' // Added for Reminders
   };
+
 
   @override
   Widget build(BuildContext context) {
